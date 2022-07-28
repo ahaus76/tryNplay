@@ -1,0 +1,10 @@
+{
+  "id": "fake_data",
+  "products": [
+    {
+      "id": "fake_data",
+      "product_name": "fake_data"
+    }
+  ],
+  "category": "fake_data"
+}
