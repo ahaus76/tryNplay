@@ -7,15 +7,16 @@ import java.util.List;
 
 public class MultiGreeter {
 
-    public String createGreetMsg(List<String> names, Date date) {
-        StringBuffer msg = new StringBuffer();
-        for (String name : names) {
-            msg.append(createGreetMsg(name, date));
+    public String createGreetMsg(List<Greetable> persons, Date date) {
+        StringBuffer msg;
+        msg = new StringBuffer();
+        for (Greetable person : persons) {
+            msg.append(createGreetMsg(person, date));
         }
         return msg.toString();
     }
 
-    private String createGreetMsg(String name, Date date) {
+    public String createGreetMsg(Greetable person, Date date) {
         StringBuffer msg = new StringBuffer();
         Calendar cal = new GregorianCalendar();
         cal.setTime(date);
@@ -27,8 +28,8 @@ public class MultiGreeter {
         } else {
             msg.append("Good evening "); // replace with loading text from resource bundle
         }
-
-        msg.append(name);
+        
+        msg.append(String.format("%s %s %s \n ", person.getTitle(), person.getName(), person.getLastName()));
 
         return msg.toString();
     }
